@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Favourites from "./Favourite";
+import "./index.css";
 
-function App() {
+const studentsList = ["Bharath", "Praveen", "Kumar", "Ramya", "Monica"];
+
+const App = () => {
+  const [students, setStudents] = useState(studentsList);
+  const [favorites, setFavorites] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const addToFavorites = (student) => {
+    setFavorites([...favorites, student]);
+    setStudents(students.filter((s) => s !== student));
+  };
+
+  const removeFromFavorites = (student) => {
+    setStudents([...students, student]);
+    setFavorites(favorites.filter((s) => s !== student));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
+      <Router>
+        <button className="toggle-btn" onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        </button>
+        <Routes>
+          <Route path="/" element={<Home students={students} addToFavorites={addToFavorites} />} />
+          <Route path="/favourites" element={<Favourites favorites={favorites} removeFromFavorites={removeFromFavorites} />} />
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

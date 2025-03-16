@@ -1,13 +1,133 @@
+
 body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  text-align: center;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.light-mode {
+  background-color: #f0f8ff; 
+  color: #333;
+}
+
+
+.dark-mode {
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: background 0.5s ease, transform 0.3s ease;
+}
+
+.dark-mode .container {
+  background: #1e1e1e;
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+
+h2 {
+  font-size: 26px;
+  color: #2393b3;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e3f2fd; 
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dark-mode .student-item {
+  background: #ca3a71;
+}
+
+.student-item:hover {
+  transform: scale(1.05);
+  background: #e28f13; 
+}
+
+button {
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+
+.favorite-button {
+  background-color: #306764;
+  color: white;
+}
+
+.favorite-button:hover {
+  background-color: #f0f0b8;
+}
+
+
+.remove-button {
+  background-color: #d32f2f; 
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #b71c1c; 
+}
+
+.toggle-btn {
+  background-color: #007bff; 
+  color: white;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+
+.link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #673ab7; 
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #512da8; 
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  button {
+    width: 100%;
+  }
 }
